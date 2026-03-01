@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 360 20" xmlns="http://www.w3.org/2000/svg">
+
+    <style>
+        .st0 {
+            fill: #2F4450;
+        }
+
+        .st1 {
+            fill: #5BAAEC;
+        }
+    </style>
+
+    <!-- DRIVE -->
+    <g class="st0">
+
+        <!-- D -->
+        <path d="M0 0 H8 C15 0 20 4 20 10 C20 16 15 20 8 20 H0 Z M4 4 V16 H8 C12 16 16 13 16 10 C16 7 12 4 8 4 Z" />
+
+        <!-- R -->
+        <path d="M25 0 H33 C40 0 44 3 44 8 C44 12 41 15 37 16 L45 20 H39 L31 16 H29 V20 H25 Z 
+            M29 4 V12 H33 C36 12 40 10 40 8 C40 6 36 4 33 4 Z" />
+
+        <!-- I -->
+        <path d="M50 0 H54 V20 H50 Z" />
+
+        <!-- V -->
+        <path d="M60 0 H65 L72 16 L79 0 H84 L74 20 H70 Z" />
+
+        <!-- E -->
+        <path d="M90 0 H105 V4 H94 V8 H104 V12 H94 V16 H105 V20 H90 Z" />
+
+    </g>
+
+    <!-- FLOW -->
+    <g class="st1" transform="translate(120,0)">
+
+        <!-- F -->
+        <path d="M0 0 H15 V4 H4 V8 H14 V12 H4 V20 H0 Z" />
+
+        <!-- L -->
+        <path d="M20 0 H24 V16 H34 V20 H20 Z" />
+
+        <!-- O -->
+        <path d="M40 10 C40 4 45 0 50 0 C55 0 60 4 60 10 C60 16 55 20 50 20 C45 20 40 16 40 10 Z
+             M44 10 C44 14 47 16 50 16 C53 16 56 14 56 10 C56 6 53 4 50 4 C47 4 44 6 44 10 Z" />
+
+        <!-- W -->
+        <path d="M65 0 H70 L74 14 L78 0 H82 L86 14 L90 0 H95 L89 20 H84 L80 6 L76 20 H71 Z" />
+
+    </g>
+
+</svg>

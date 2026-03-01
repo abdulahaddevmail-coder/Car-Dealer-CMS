@@ -1,0 +1,245 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+  previewFeatures = ["strictUndefinedChecks"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// model User {
+//   id String @id @default(cuid())
+//   email String @unique
+//   hashedPassword String @map("hashed_password")
+//   sessions Session[]
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   @@map("users")
+// }
+
+// model Session {
+//     id String @id @default(cuid())
+//     sessionToken String @unique @map("session_token")
+//     userId String @map("user_id")
+//     expires DateTime
+//     require2FA Boolean @default(true)
+//     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@map("sessions")
+// }
+
+// model Classified {
+//     id Int @id @default(autoincrement())
+//     views Int @default(0)
+//     slug String @unique
+//     vrm String?
+//     title String?
+//     description String?
+//     year Int
+//     odoReading Int @default(0) @map("odo_reading")
+//     doors Int @default(2)
+//     seats Int @default(4)
+//     price Float @default(0)
+//     makeId Int @map("make_id")
+//     make Make @relation(fields: [makeId], references: [id])
+//     modelId Int @map("model_id")
+//     model Model @relation(fields: [modelId], references: [id])
+//     modelVariatId Int? @map("model_variat_id")
+//     modelVariant ModelVariant? @relation(fields: [modelVariatId], references: [id])
+//     ulezCompliance ULEZCompliance @default(EXEMPT)
+//     transmision Transmision @default(MANUAL)
+//     color Color @default(WHITE)
+//     fuelType FuelType @default(PETROL) @map("fuel_type")
+//     bodyType BodyType @default(HATCHBACK) @map("body_type")
+//     odoUnit OdoUnit @default(MILES) @map("odo_unit")
+//     currency Currency @default(PKR)
+//     status ClassifiedStatus @default(DRAFT)
+//     images Image[]
+//     customers   Customer[]
+
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@index([makeId, modelId], name: "index_make_model")
+//     @@index([status], name: "index_status")
+//     @@index([price], name: "index_price")
+
+//     @@map("classifieds")
+// }
+
+// model Make {
+//     id Int @id @default(autoincrement())
+//     name String @unique
+//     image String?
+//     models Model[]
+//     classifieds Classified[]
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@map("makes")
+// }
+
+// model Model {
+//     id Int @id @default(autoincrement())
+//     name String
+//     makeId Int @map("make_id")
+//     make Make @relation(fields: [makeId], references: [id], onDelete: Cascade)
+//     modelVariants ModelVariant[]
+//     classifieds Classified[]
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@unique([name, makeId])
+//     @@map("models")
+// }
+
+// model ModelVariant {
+//     id Int @id @default(autoincrement())
+//     name String
+//     modelId Int @map("model_id")
+//     yearStart Int
+//     yearEnd Int
+//     model Model @relation(fields: [modelId], references: [id], onDelete: Cascade)
+//     classifieds Classified[]
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@unique([name, modelId])
+//     @@map("model_variants")
+// }
+
+// model CustomerLifecycle {
+//     id          Int      @id @default(autoincrement())
+//     customerId  Int
+//     customer    Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+//     oldStatus CustomerStatus @map("old_status")
+//     newStatus CustomerStatus @map("new_status")
+//     createdAt   DateTime @default(now())
+//     updatedAt   DateTime @updatedAt
+    
+//     @@unique([customerId])
+//     @@map("customer_lifecycle")
+// }
+
+// model Customer {
+//     id Int @id @default(autoincrement())
+//     firstName String
+//     lastName String
+//     email String @unique
+//     mobile String?
+//     bookingDate DateTime? @map("booking_date")
+//     termsAccepted Boolean @default(false) @map("terms_accepted")
+//     status CustomerStatus @default(INTRESTED)
+//     classifiedId Int? @map("classified_id")
+//     classified Classified? @relation(fields: [classifiedId], references: [id], onDelete: Cascade)
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt 
+//     @@map("customers")
+//     customerLifecycles CustomerLifecycle[]
+// }
+
+// model Image {
+//     id Int @id @default(autoincrement())
+//     src String
+//     alt String
+//     classifiedId Int @map("classified_id")
+//     classified Classified @relation(fields: [classifiedId], references: [id], onDelete: Cascade)
+//     blurHash String
+//     isMain Boolean @default(false) @map("is_main")
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+
+//     @@map("images")
+// }
+
+// model PageView {
+//     id Int @id @default(autoincrement())
+//     path String
+//     viewdAt DateTime @default(now()) @map("viewed_at")
+//     ipAddress String?
+//     userAgent String?
+//     referrer String?
+
+//     @@index([path, viewdAt])
+//     @@map("page_views")
+// }
+
+// enum CustomerStatus {
+//     SUBSCRIBED
+//     INTRESTED
+//     CONTACTED
+//     PURCHASED
+//     COLD
+// }
+
+
+// enum OdoUnit {
+//     MILES
+//     KILOMETERS
+// }
+
+// enum ULEZCompliance {
+//     EXEMPT
+//     NON_EXEMPT
+// }
+
+// enum Transmision {
+//     MANUAL
+//     AUTOMATIC
+// }
+
+// enum Color {
+//     WHITE
+//     BLACK
+//     GREY
+//     SILVER
+//     RED
+//     BLUE
+//     GREEN
+//     YELLOW
+//     ORANGE
+//     BROWN
+//     PURPLE
+// }
+
+// enum FuelType {
+//     PETROL
+//     DIESEL
+//     ELECTRIC
+//     HYBRID
+// }
+
+// enum BodyType {
+//     HATCHBACK
+//     SEDAN
+//     SUV
+//     COUPE
+//     CONVERTIBLE
+//     WAGON
+//     VAN
+//     PICKUP
+// }
+
+// enum Currency {
+//     PKR
+//     USD
+//     EUR
+//     GBP
+//     JPY
+//     AUD
+//     CAD
+//     CHF
+//     CNY
+//     SEK
+//     NZD
+// }
+
+// enum ClassifiedStatus {
+//     DRAFT
+//     SOLD
+//     LIVE
+// }
