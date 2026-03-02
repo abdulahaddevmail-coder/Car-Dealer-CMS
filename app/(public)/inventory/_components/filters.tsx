@@ -19,8 +19,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/common/select-input";
 import { SearchInput } from "@/components/common/search-input";
-import { RangeFilter } from "../../../../components/common/range-filters";
-import { TaxonomyFilters } from "../../../../components/common/taxonomy-filters";
+import { RangeFilter } from "@/components/common/range-filters";
+import { TaxonomyFilters } from "@/components/common/taxonomy-filters";
 
 import { cn, formatOdometerUnit, formatText } from "@/lib/utils";
 
